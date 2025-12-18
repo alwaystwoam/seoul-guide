@@ -407,6 +407,200 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Nav item active/tips style */
+        .nav-item.nav-tips {
+            background: var(--accent);
+            color: white;
+        }
+
+        .nav-item.nav-tips:hover {
+            background: #e0314f;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tips-header {
+            margin-bottom: 24px;
+        }
+
+        .tips-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .tips-subtitle {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        /* Accordion */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-trigger:hover {
+            background: var(--bg-soft);
+        }
+
+        .accordion-trigger-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .accordion-emoji {
+            font-size: 1.25rem;
+        }
+
+        .accordion-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .accordion-chevron {
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .accordion-item.open .accordion-chevron {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 0 20px 20px;
+        }
+
+        .accordion-item.open .accordion-content {
+            display: block;
+        }
+
+        /* Tip cards inside accordion */
+        .tip-group {
+            margin-bottom: 16px;
+        }
+
+        .tip-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .tip-group-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tip-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tip-card {
+            padding: 12px 16px;
+            background: var(--bg-soft);
+            border-radius: 10px;
+        }
+
+        .tip-card-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            margin-bottom: 2px;
+        }
+
+        .tip-card-desc {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .tip-card.highlight {
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+        }
+
+        .tip-card.highlight .tip-card-name {
+            color: var(--accent);
+        }
+
+        /* Simple tip text */
+        .tip-text {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .tip-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .tip-text strong {
+            font-weight: 600;
+        }
+
+        /* Tip bullets */
+        .tip-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tip-bullets li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .tip-bullets li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .tip-bullets li:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -422,6 +616,7 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-inner">
+            <a href="#tips" class="nav-item nav-tips">Tips</a>
             <a href="#day1" class="nav-item">Day 1</a>
             <a href="#day2" class="nav-item">Day 2</a>
             <a href="#day3" class="nav-item">Day 3</a>
@@ -453,6 +648,247 @@
             <div class="budget-item"><span class="budget-symbol">$$$</span> Upscale</div>
             <div class="budget-item"><span class="budget-symbol">$$$$</span> Fine Dining</div>
         </div>
+
+        <!-- Travel Tips -->
+        <section class="tips-section" id="tips">
+            <div class="tips-header">
+                <h2 class="tips-title">Travel Tips</h2>
+                <p class="tips-subtitle">Apps, transport, money & daily operations</p>
+            </div>
+
+            <div class="accordion">
+                <!-- Apps -->
+                <div class="accordion-item open">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">📱</span>
+                            <span class="accordion-label">Apps to Download</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="tip-group">
+                            <p class="tip-group-title">Must Have</p>
+                            <div class="tip-list">
+                                <div class="tip-card highlight">
+                                    <p class="tip-card-name">Naver Map</p>
+                                    <p class="tip-card-desc">Primary navigation — best for transit, walking, POIs in Korea</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">KakaoMap</p>
+                                    <p class="tip-card-desc">Backup navigation</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Kakao T</p>
+                                    <p class="tip-card-desc">Taxis — use when cold, late, or tired</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Papago</p>
+                                    <p class="tip-card-desc">Best Korean↔English/Vietnamese translation</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">KakaoTalk</p>
+                                    <p class="tip-card-desc">Local messenger — shops/bookings may message here</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Optional</p>
+                            <div class="tip-list">
+                                <div class="tip-card">
+                                    <p class="tip-card-name">WOWPASS app</p>
+                                    <p class="tip-card-desc">Only if using WOWPASS card</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Google Translate</p>
+                                    <p class="tip-card-desc">Camera translation backup</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Around -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">🚇</span>
+                            <span class="accordion-label">Getting Around</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="tip-group">
+                            <p class="tip-group-title">Default: Subway + Walking</p>
+                            <p class="tip-text">Fast, cheap, predictable. Itinerary is built around subway-friendly areas (Myeongdong ↔ Jongno/Anguk ↔ COEX/Gangnam ↔ Jamsil).</p>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">When to Taxi (Kakao T)</p>
+                            <ul class="tip-bullets">
+                                <li>Below freezing or windy</li>
+                                <li>Dressed up for nice dinner</li>
+                                <li>Carrying shopping bags between areas</li>
+                                <li>Late night</li>
+                            </ul>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Airport Transfer (ICN ↔ Myeongdong)</p>
+                            <div class="tip-list">
+                                <div class="tip-card highlight">
+                                    <p class="tip-card-name">AREX + Subway</p>
+                                    <p class="tip-card-desc">Cheapest, most predictable (no traffic)</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Airport Limo Bus</p>
+                                    <p class="tip-card-desc">Comfortable with luggage, slightly slower</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Taxi</p>
+                                    <p class="tip-card-desc">Most convenient, most expensive</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- T-money -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">💳</span>
+                            <span class="accordion-label">T-money Card</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="tip-bullets">
+                            <li><strong>Buy a T-money card early</strong> — convenience store near hotel is easiest</li>
+                            <li>Use for subway + buses</li>
+                            <li>Top up as needed at convenience stores</li>
+                            <li><strong>Keep one card each</strong> — don't share (gates become slow)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Money -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">💰</span>
+                            <span class="accordion-label">Money & Payments</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="tip-group">
+                            <p class="tip-group-title">You'll use 3 payment modes</p>
+                            <ul class="tip-bullets">
+                                <li><strong>Credit card</strong> — most restaurants, cafes, stores</li>
+                                <li><strong>T-money</strong> — transit</li>
+                                <li><strong>Cash</strong> — markets, small shops, T-money top-ups</li>
+                            </ul>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">ATM Tips</p>
+                            <ul class="tip-bullets">
+                                <li>Withdraw KRW as needed (don't over-carry)</li>
+                                <li>Use ATMs in banks, convenience stores, subway stations</li>
+                                <li><strong>Avoid "dynamic currency conversion"</strong> — choose to be charged in KRW</li>
+                            </ul>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Cash-heavy spots</p>
+                            <p class="tip-text"><strong>Gwangjang Market</strong> — some stalls take card, but cash is faster</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WOWPASS -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">🪪</span>
+                            <span class="accordion-label">WOWPASS (Optional)</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="tip-text"><strong>What it is:</strong> Tourist prepaid card for easy payments where foreign cards sometimes fail.</p>
+                        <p class="tip-text"><strong>Good for:</strong> Simplifying payments + predictable fallback</p>
+                        <p class="tip-text"><strong>Note:</strong> T-money is separate — you still top up transit separately.</p>
+                        <p class="tip-text"><strong>Skip if:</strong> You're fine with credit card + T-money + some cash</p>
+                    </div>
+                </div>
+
+                <!-- Connectivity -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">📶</span>
+                            <span class="accordion-label">Connectivity</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="tip-text"><strong>Get data immediately</strong> — you need it for Naver Map + transit routing.</p>
+                        <div class="tip-list">
+                            <div class="tip-card highlight">
+                                <p class="tip-card-name">eSIM</p>
+                                <p class="tip-card-desc">Best option if your phone supports it</p>
+                            </div>
+                            <div class="tip-card">
+                                <p class="tip-card-name">Physical SIM at Airport</p>
+                                <p class="tip-card-desc">Backup option — get it right when you land</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">🧥</span>
+                            <span class="accordion-label">Weather & Clothing</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="tip-text"><strong>Late December:</strong> Cold, often windy, potentially below freezing.</p>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Pack</p>
+                            <ul class="tip-bullets">
+                                <li>Long down jacket</li>
+                                <li>Heat-tech base layer</li>
+                                <li>Gloves + beanie</li>
+                                <li>Comfortable walking shoes with grip (ice patches happen)</li>
+                            </ul>
+                        </div>
+                        <p class="tip-text"><strong>Pro tip:</strong> Indoors gets hot — dress in layers so you can shed a jacket.</p>
+                    </div>
+                </div>
+
+                <!-- Daily Habits -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">⚡</span>
+                            <span class="accordion-label">Daily Efficiency Tips</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="tip-bullets">
+                            <li><strong>Pin everything in Naver Map by day</strong> — create Day 1–7 lists</li>
+                            <li><strong>Cap each day:</strong> 1 main meal + 1 café + 1 dessert (otherwise you lose hours to transit + queues)</li>
+                            <li><strong>Queue-heavy places</strong> (London Bagel Museum, top BBQ): go right at open or accept a tradeoff</li>
+                            <li><strong>Escalators:</strong> Stand on one side, pass on the other (follow local flow)</li>
+                            <li><strong>Avoid peak meal times</strong> if you hate lines — popular places have waits</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Day 1 -->
         <section class="day-section" id="day1">
