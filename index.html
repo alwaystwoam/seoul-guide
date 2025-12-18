@@ -601,6 +601,153 @@
         .tip-bullets li:last-child {
             margin-bottom: 0;
         }
+
+        /* Side Quests Section */
+        .sidequests-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidequests-header {
+            margin-bottom: 24px;
+        }
+
+        .sidequests-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .sidequests-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .sidequests-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Quest Cards */
+        .quest-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .quest-card {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .quest-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .quest-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quest-header.coffee {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+
+        .quest-header.artsy {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+        }
+
+        .quest-header.intl {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        }
+
+        .quest-header.quick {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+
+        .quest-header.night {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        }
+
+        .quest-header.night .quest-name,
+        .quest-header.night .quest-vibe {
+            color: white;
+        }
+
+        .quest-header.night .quest-vibe {
+            opacity: 0.8;
+        }
+
+        .quest-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quest-emoji {
+            font-size: 1.25rem;
+        }
+
+        .quest-vibe {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .quest-body {
+            padding: 20px;
+        }
+
+        .quest-when {
+            font-size: 0.8125rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quest-spots {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .quest-spot {
+            padding: 8px 12px;
+            background: var(--bg-soft);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .quest-spot.highlight {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .quest-note {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -624,6 +771,7 @@
             <a href="#day5" class="nav-item">Day 5</a>
             <a href="#day6" class="nav-item">Day 6</a>
             <a href="#day7" class="nav-item">Day 7</a>
+            <a href="#sidequests" class="nav-item">Bonus</a>
         </div>
     </nav>
 
@@ -1548,6 +1696,120 @@
                     <div class="photo-item">
                         <span class="photo-type couple">Couple</span>
                         <span class="photo-desc">NUDAKE dessert sculptures, Gwangjang food-in-hand shots</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Side Quests -->
+        <section class="sidequests-section" id="sidequests">
+            <div class="sidequests-header">
+                <p class="sidequests-label">Bonus</p>
+                <h2 class="sidequests-title">Side Quests</h2>
+                <p class="sidequests-subtitle">Neighborhoods that didn't fit the core itinerary but are worth swapping in if you want a different vibe.</p>
+            </div>
+
+            <div class="quest-grid">
+                <!-- Seongsu -->
+                <div class="quest-card">
+                    <div class="quest-header artsy">
+                        <p class="quest-name"><span class="quest-emoji">🎨</span> Seongsu</p>
+                        <p class="quest-vibe">Design cafés + converted warehouse vibes</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for a half-day of pure cafés + shopping</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Cafe Onion Seongsu</span>
+                            <span class="quest-spot">Daelim Changgo</span>
+                            <span class="quest-spot">Foreplan</span>
+                            <span class="quest-spot">Jayeondo Sogeumppang</span>
+                        </div>
+                        <p class="quest-note">Seoul's Brooklyn — industrial spaces turned into Instagram-worthy cafés. Great for a slow, photogenic morning.</p>
+                    </div>
+                </div>
+
+                <!-- Yeonnam/Hongdae -->
+                <div class="quest-card">
+                    <div class="quest-header coffee">
+                        <p class="quest-name"><span class="quest-emoji">🧸</span> Yeonnam + Hongdae</p>
+                        <p class="quest-vibe">Youth culture + cute cafés + street energy</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for playful, younger street scene</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Cafe Layered Yeonnam</span>
+                            <span class="quest-spot">Coffee Nap Roasters</span>
+                            <span class="quest-spot">Greem Café</span>
+                            <span class="quest-spot">Yeonnam-dong Street</span>
+                        </div>
+                        <p class="quest-note">University area energy. Best in late afternoon → evening for street performers, buskers, and nightlife if you want it.</p>
+                    </div>
+                </div>
+
+                <!-- Hannam/Itaewon -->
+                <div class="quest-card">
+                    <div class="quest-header intl">
+                        <p class="quest-name"><span class="quest-emoji">🌍</span> Hannam + Itaewon + HBC</p>
+                        <p class="quest-vibe">International scene + serious coffee culture</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for "expat Seoul" + strong coffee</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Anthracite Hannam</span>
+                            <span class="quest-spot">Tartine Bakery</span>
+                            <span class="quest-spot">Upstanding Coffee</span>
+                            <span class="quest-spot">Hahouse Cafe</span>
+                        </div>
+                        <p class="quest-note">More cosmopolitan feel. Good brunch spots, international restaurants, and design-forward spaces. Haebangchon (HBC) has neighborhood charm.</p>
+                    </div>
+                </div>
+
+                <!-- Hapjeong -->
+                <div class="quest-card">
+                    <div class="quest-header quick">
+                        <p class="quest-name"><span class="quest-emoji">☕</span> Hapjeong</p>
+                        <p class="quest-vibe">Single intentional coffee mission</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use as a quick detour, not a whole day</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Perception</span>
+                        </div>
+                        <p class="quest-note">Worth the trip if you're serious about specialty coffee. Combine with Hongdae/Yeonnam if nearby.</p>
+                    </div>
+                </div>
+
+                <!-- DDP -->
+                <div class="quest-card">
+                    <div class="quest-header night">
+                        <p class="quest-name"><span class="quest-emoji">🌙</span> Dongdaemun Design Plaza (DDP)</p>
+                        <p class="quest-vibe">Zaha Hadid architecture + night photography</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for architecture photos, especially at night</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">DDP exterior</span>
+                            <span class="quest-spot">LED Rose Garden</span>
+                            <span class="quest-spot">Dongdaemun Night Market</span>
+                        </div>
+                        <p class="quest-note">The futuristic building looks incredible lit up after dark. Combine with late-night shopping at Dongdaemun malls (open until 5am).</p>
+                    </div>
+                </div>
+
+                <!-- Mangwon -->
+                <div class="quest-card">
+                    <div class="quest-header">
+                        <p class="quest-name"><span class="quest-emoji">🥐</span> Mangwon</p>
+                        <p class="quest-vibe">Local market + neighborhood bakeries</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for a chill local morning</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Mangwon Market</span>
+                            <span class="quest-spot">Fritz Coffee</span>
+                            <span class="quest-spot">Meal° Bakery</span>
+                        </div>
+                        <p class="quest-note">Less touristy than Gwangjang. Great for fresh produce, street food, and a more "real Seoul" vibe. Near Han River for a walk after.</p>
                     </div>
                 </div>
             </div>
