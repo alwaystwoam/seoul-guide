@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul · Dec 22–28, 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-primary: #222222;
+            --text-secondary: #717171;
+            --text-light: #b0b0b0;
+            --border: #ebebeb;
+            --bg-soft: #f7f7f7;
+            --accent: #ff385c;
+            --accent-soft: #fff0f3;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            max-height: 700px;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 60px 24px 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-inner {
+            display: flex;
+            gap: 8px;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            flex-shrink: 0;
+            padding: 10px 16px;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-primary);
+            background: var(--bg-soft);
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: var(--text-primary);
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Trip Info Card */
+        .trip-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Day Section */
+        .day-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-header {
+            margin-bottom: 32px;
+        }
+
+        .day-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .day-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .day-plan {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Day Image */
+        .day-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            background: var(--bg-soft);
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 32px;
+        }
+
+        .category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .category-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        /* Place Cards */
+        .places {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .place {
+            padding: 16px 20px;
+            background: var(--bg-soft);
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .place:active {
+            transform: scale(0.98);
+        }
+
+        .place-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .place-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .place-price {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .place-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .place-divider {
+            color: var(--text-light);
+        }
+
+        /* Photo Spots */
+        .photo-section {
+            background: var(--bg-soft);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .photo-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .photo-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .photo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .photo-type {
+            flex-shrink: 0;
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            background: white;
+            color: var(--text-secondary);
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .photo-type.scenic {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .photo-type.urban {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .photo-type.couple {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .photo-desc {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        /* Budget Legend */
+        .budget-legend {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .budget-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .budget-symbol {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 48px 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .footer-flag {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .trip-info {
+                grid-template-columns: 1fr;
+            }
+
+            .day-title {
+                font-size: 1.5rem;
+            }
+
+            .day-image {
+                height: 220px;
+                border-radius: 12px;
+            }
+
+            .photo-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .photo-type {
+                min-width: auto;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <header class="hero">
+        <img src="https://dailytravelpill.com/wp-content/uploads/2020/11/gyeongbokgung-palace-south-korea-hanbok-girls.jpg" alt="Seoul cityscape at night" class="hero-image">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Dorian x Huyen Seoul</h1>
+            <p class="hero-subtitle">December 22–28, 2025 · 7 days</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#day1" class="nav-item">Day 1</a>
+            <a href="#day2" class="nav-item">Day 2</a>
+            <a href="#day3" class="nav-item">Day 3</a>
+            <a href="#day4" class="nav-item">Day 4</a>
+            <a href="#day5" class="nav-item">Day 5</a>
+            <a href="#day6" class="nav-item">Day 6</a>
+            <a href="#day7" class="nav-item">Day 7</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Trip Info -->
+        <div class="trip-info">
+            <div class="info-item">
+                <span class="info-label">Hotel</span>
+                <span class="info-value">L7 Myeongdong</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Duration</span>
+                <span class="info-value">7 days, 6 nights</span>
+            </div>
+        </div>
+
+        <!-- Budget Legend -->
+        <div class="budget-legend">
+            <div class="budget-item"><span class="budget-symbol">$</span> Budget</div>
+            <div class="budget-item"><span class="budget-symbol">$$</span> Moderate</div>
+            <div class="budget-item"><span class="budget-symbol">$$$</span> Upscale</div>
+            <div class="budget-item"><span class="budget-symbol">$$$$</span> Fine Dining</div>
+        </div>
+
+        <!-- Day 1 -->
+        <section class="day-section" id="day1">
+            <div class="day-header">
+                <p class="day-label">Day 1 · Dec 22</p>
+                <h2 class="day-title">Arrival + Myeongdong</h2>
+                <p class="day-plan">Land at ICN → check into hotel → explore Myeongdong night market + skincare shopping</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Myeongdong Kyoja</p>
+                        <div class="place-meta">
+                            <span class="place-price">$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Classic kalguksu & mandu, fast iconic first-night comfort</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Woo Lae Oak</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Legendary naengmyeon in Euljiro, old-school Seoul meal</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Eunjujeong</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Local favorite in Euljiro, less touristy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Blue Bottle Myeongdong</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Modern minimal, reliable reset near hotel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Myeongdong Skincare Street + Olive Young</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Best density for K-beauty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Myeongdong neon streets + food stalls — classic "Seoul at night" energy</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Blue Bottle exterior/interior, night market candid shots with street food + lights</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 2 -->
+        <section class="day-section" id="day2">
+            <div class="day-header">
+                <p class="day-label">Day 2 · Dec 23</p>
+                <h2 class="day-title">Palaces, Hanok & N Seoul Tower</h2>
+                <p class="day-plan">Morning at Gyeongbokgung → Bukchon hanok alleys → Ikseon-dong + Insadong afternoon → N Seoul Tower at night</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Tosokchon Samgyetang</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Perfect winter ginseng chicken soup near Gyeongbokgung</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Hwangsaengga Kalguksu</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Ideal noodles while in Bukchon/Jongno area</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Onjium</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Korean tasting menu for a special occasion (reserve ahead)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee & Tea
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Cafe Onion Anguk</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Beautiful hanok aesthetic bakery café</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Osulloc Tea House Bukchon</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Calm tea stop mid-walk through the alleys</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Seoul Coffee Ikseon</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Cozy hanok café with couple vibe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 01-1.5.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"></path></svg>
+                    Bakeries & Desserts
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">London Bagel Museum (Anguk)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Trendy bagels — go early or accept the queue</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Artist Bakery</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">High hit-rate pastries, easy add-on</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Soha Salt Pond (Ikseon)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Perfect "Ikseon wander" snack stop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Insadong</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Best souvenir zone — crafts & traditional gifts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Bukchon "8 Views" — official vantage points with rooftops + lanes</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">N Seoul Tower at night — the essential Seoul skyline postcard shot</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Ikseon-dong alleys — hanok + modern signage, beautiful at night</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Hanbok photos at palace gates, Cafe Onion interior for "Seoul aesthetic"</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 3 -->
+        <section class="day-section" id="day3">
+            <div class="day-header">
+                <p class="day-label">Day 3 · Dec 24</p>
+                <h2 class="day-title">Lotte World</h2>
+                <p class="day-plan">Full day at Lotte World theme park → Optional Seoul Sky Observatory if energy remains</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Lotte World Complex</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Convenience-first — eat inside or around the complex</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Back to Central for Dinner</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Myeongdong Kyoja ($) or Woo Lae Oak ($$) if you want a real meal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Seoul Sky Observatory — massive skyline view (if you go)</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Lotte World Christmas decorations — bright, festive theme park Seoul</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Castle backdrop zones, Seoul Sky glass/height shots</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 4 -->
+        <section class="day-section" id="day4">
+            <div class="day-header">
+                <p class="day-label">Day 4 · Dec 25</p>
+                <h2 class="day-title">Christmas Day</h2>
+                <p class="day-plan">Intentional café morning → COEX + Starfield Library → Cheonggyecheon lights → Special Christmas dinner</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Christmas Dinner
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Geumdwaeji Sikdang (Gold Pig)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Famous top pork BBQ in Yaksu — competitive but worth it</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Mingles</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Modern Korean tasting in Gangnam — event-night worthy</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">La Yeon (Shilla)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Luxury tasting — formal, once-in-Seoul experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee (Pick 1 Neighborhood)
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Sanmotungi (Buam-dong)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Romantic winter view café</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Anthracite Hannam</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Industrial coffee, design-forward vibe</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Café Aalto (Amorepacific)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Refined, calm design café</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Hahouse Cafe (Itaewon)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Gallery/industrial with strong photo interior</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 01-1.5.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"></path></svg>
+                    Bakeries
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Tartine Bakery (Hannam)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">High-quality bakery</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Teddy Beurre House (Samgakji)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Buttery pastry specialty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">COEX Mall</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Weather-proof mega mall</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Cheonggyecheon Stream — evening stroll with seasonal light installations</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Starfield Library towering shelves — go early to avoid crowds</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Starfield escalators/shelf symmetry, design café interiors</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 5 -->
+        <section class="day-section" id="day5">
+            <div class="day-header">
+                <p class="day-label">Day 5 · Dec 26</p>
+                <h2 class="day-title">Ski Day — Vivaldi Park</h2>
+                <p class="day-plan">Shuttle to Vivaldi Park → rentals + lesson → ski all day → return to Seoul evening</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Post-Ski Dinner
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Myeongdong Kyoja</p>
+                        <div class="place-meta">
+                            <span class="place-price">$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Fastest warm meal back in the city</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Woo Lae Oak</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Classic reward meal after a day on the slopes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Snow slope panoramas — best at golden hour near end of day</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Lift-line/couple snow portraits, rental gear + goggles shots</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 6 -->
+        <section class="day-section" id="day6">
+            <div class="day-header">
+                <p class="day-label">Day 6 · Dec 27</p>
+                <h2 class="day-title">Nami Island + Light Festival</h2>
+                <p class="day-plan">Nami Island day trip → Chuncheon Dakgalbi lunch → Garden of Morning Calm lights at night → return</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Chuncheon Dakgalbi</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Regional specialty — the correct pairing with this trip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Nami Island winter tree lanes — iconic long-perspective shots</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Riverside views on Nami (weather dependent)</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Garden of Morning Calm arch tunnels + illuminated installations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 7 -->
+        <section class="day-section" id="day7">
+            <div class="day-header">
+                <p class="day-label">Day 7 · Dec 28</p>
+                <h2 class="day-title">Gwangjang Market + Gangnam + Departure</h2>
+                <p class="day-plan">Morning Gwangjang Market → Garosu-gil + Apgujeong Rodeo → lunch → hotel → ICN by ~3 PM</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat — Gwangjang Market
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Gwangjang Market</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Bindaetteok + mayak gimbap are the signature eats</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat — Gangnam Finale
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Samwon Garden (Apgujeong)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Upscale BBQ — polished "final meal" vibe</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Born and Bred (Majang)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Serious beef — destination meat experience</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Mingles (Gangnam)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Tasting menu if you want the last meal to be a statement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee & Dessert
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">NUDAKE (Haus Nowhere Dosan)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Dessert-art — most "Seoul trend" photo stop</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">VIEW376 (Apgujeong Rodeo)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Han River view café — "final photos" energy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Sinsa Garosu-gil</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Boutiques + date street walk</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Apgujeong Rodeo</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Trend/luxury + people watching</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Gangnam Station Underground</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Efficient last-minute gifts/accessories</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">VIEW376 — Han River/skyline framing</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Gwangjang Market — steam/griddle scenes, documentary-style shots</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Garosu-gil — clean "K-drama shopping street" vibe</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">NUDAKE dessert sculptures, Gwangjang food-in-hand shots</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-flag">🇰🇷</div>
+        <p>Have an amazing trip to Seoul!</p>
+    </footer>
+</body>
+</html>
