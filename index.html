@@ -748,6 +748,138 @@
             color: var(--text-secondary);
             line-height: 1.5;
         }
+
+        /* Flight Cards */
+        .flights-section {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .flights-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .flight-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .flight-main {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .flight-main:hover {
+            background: var(--bg-soft);
+        }
+
+        .flight-date {
+            text-align: center;
+            min-width: 48px;
+        }
+
+        .flight-date-day {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .flight-date-month {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .flight-route {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flight-city {
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+
+        .flight-code {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .flight-arrow {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .flight-time {
+            text-align: right;
+        }
+
+        .flight-time-range {
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+
+        .flight-duration {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .flight-chevron {
+            width: 16px;
+            height: 16px;
+            color: var(--text-light);
+            transition: transform 0.2s ease;
+        }
+
+        .flight-card.open .flight-chevron {
+            transform: rotate(180deg);
+        }
+
+        .flight-details {
+            display: none;
+            padding: 0 16px 16px;
+            border-top: 1px solid var(--border);
+            margin-top: 0;
+        }
+
+        .flight-card.open .flight-details {
+            display: block;
+            padding-top: 12px;
+        }
+
+        .flight-detail-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8125rem;
+            padding: 4px 0;
+        }
+
+        .flight-detail-label {
+            color: var(--text-secondary);
+        }
+
+        .flight-detail-value {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .flight-detail-value.confirm {
+            font-family: monospace;
+            background: var(--bg-soft);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -786,6 +918,91 @@
             <div class="info-item">
                 <span class="info-label">Duration</span>
                 <span class="info-value">7 days, 6 nights</span>
+            </div>
+        </div>
+
+        <!-- Flights -->
+        <div class="flights-section">
+            <div class="flights-grid">
+                <!-- Outbound -->
+                <div class="flight-card" onclick="this.classList.toggle('open')">
+                    <div class="flight-main">
+                        <div class="flight-date">
+                            <div class="flight-date-day">22</div>
+                            <div class="flight-date-month">Dec</div>
+                        </div>
+                        <div class="flight-route">
+                            <div>
+                                <div class="flight-city">SGN</div>
+                                <div class="flight-code">Ho Chi Minh</div>
+                            </div>
+                            <span class="flight-arrow">→</span>
+                            <div>
+                                <div class="flight-city">ICN</div>
+                                <div class="flight-code">Seoul</div>
+                            </div>
+                        </div>
+                        <div class="flight-time">
+                            <div class="flight-time-range">9:25a → 4:25p</div>
+                            <div class="flight-duration">5h</div>
+                        </div>
+                        <svg class="flight-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Airline</span>
+                            <span class="flight-detail-value">Vietnam Airlines 402</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Confirmation</span>
+                            <span class="flight-detail-value confirm">AYD87L</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Class</span>
+                            <span class="flight-detail-value">Economy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return -->
+                <div class="flight-card" onclick="this.classList.toggle('open')">
+                    <div class="flight-main">
+                        <div class="flight-date">
+                            <div class="flight-date-day">28</div>
+                            <div class="flight-date-month">Dec</div>
+                        </div>
+                        <div class="flight-route">
+                            <div>
+                                <div class="flight-city">ICN</div>
+                                <div class="flight-code">Seoul</div>
+                            </div>
+                            <span class="flight-arrow">→</span>
+                            <div>
+                                <div class="flight-city">SGN</div>
+                                <div class="flight-code">Ho Chi Minh</div>
+                            </div>
+                        </div>
+                        <div class="flight-time">
+                            <div class="flight-time-range">7:25p → 10:50p</div>
+                            <div class="flight-duration">5h 25m</div>
+                        </div>
+                        <svg class="flight-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Airline</span>
+                            <span class="flight-detail-value">Asiana Airlines 735</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Confirmation</span>
+                            <span class="flight-detail-value confirm">AYDIDP</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Class</span>
+                            <span class="flight-detail-value">Economy</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
